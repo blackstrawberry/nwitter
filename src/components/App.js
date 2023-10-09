@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppRouter from './Router';
+import { authService } from 'fbase';
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(authService.currentUser);
   return (
-    <div><AppRouter/></div>
+    <div><AppRouter isLoggedIn={isLoggedIn}/></div>
   );
 }
 
